@@ -1,0 +1,20 @@
+
+.fondo{
+  background-image: url(https://images.unsplash.com/photo-1437419764061-2473afe69fc2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80 );
+  background-size: cover;
+  width: 100%;
+  background-repeat: no-repeat;
+  filter: saturate(200%);
+ height: 95vh;
+ 
+}
+
+.login-btn{
+  background-color: #292556;
+  color: white;
+}
+
+.login-btn:hover{
+  background-color: #3D6CB2;
+  color: white;
+}
