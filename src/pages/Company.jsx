@@ -1,7 +1,7 @@
 
 const Company = ({element, handleDeleteCompany}) => {
   
-localStorage.getItem('USER_ROLE');
+const userRole = localStorage.getItem('USER_ROLE');
 
     
   return (
@@ -14,7 +14,7 @@ localStorage.getItem('USER_ROLE');
         <td> {element.address} </td>
         <td> {element.phone} </td>
         
-         {'USER_ROLE' === 'admin' && (
+          {userRole === 'admin' && (
         <td> 
           <button className='button is-light' 
              onClick={() => handleDeleteCompany(element.id)}

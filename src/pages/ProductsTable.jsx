@@ -84,7 +84,7 @@ const handleDeleteProduct = (id) => {
     };
 
 
-localStorage.getItem('USER_ROLE');
+const userRole = localStorage.getItem('USER_ROLE');
 
 
 
@@ -99,7 +99,7 @@ localStorage.getItem('USER_ROLE');
               <h1 className='is-size-2 title-color'> LISTA DE PRODUCTOS </h1>
             </div>
             <div>
-              {'USER_ROLE' === 'admin' && (
+              {userRole === 'admin' && (
                 <button className="button  is-right is-info is-size-8 addUser-btn"
                   onClick={buttonRegisterProduct}
                 >
@@ -119,7 +119,7 @@ localStorage.getItem('USER_ROLE');
                <th className='is-info'> CARACTERISTICAS </th>
                <th className='is-info'> PRECIO </th>
               
-               {'USER_ROLE' === 'admin' && (
+              {userRole === 'admin' && (
                <th className='is-info'> ACCIÓN </th>
               )}
              </tr>

@@ -3,8 +3,7 @@ import React, { useContext, useState } from 'react'
 
 export const Product = ({ element, handleDeleteProduct, setIsActiveModalUpdate, isActiveModalUpdate }) => {
 
-localStorage.getItem('USER_ROLE');
-
+const userRole = localStorage.getItem('USER_ROLE');
 
 
   return (
@@ -17,7 +16,7 @@ localStorage.getItem('USER_ROLE');
         <td> {element.descrip} </td>
         <td> {element.amount} </td>
         
-           {'USER_ROLE' === 'admin' && (
+        {userRole === 'admin' && (
         <td>
             <button className='button is-light'
               onClick={() => handleDeleteProduct(element.id)}

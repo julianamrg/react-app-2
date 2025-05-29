@@ -12,7 +12,7 @@ export const CompanyTable = () => {
 
 const [isActiveModalRegister, setIsActiveModalRegister] =  useState(false); // estado inicial del modal cuando está cerrado es falso
 const {getCompanies, companies, setCompanies }= useGlobalState(); 
-localStorage.getItem('USER_ROLE');
+const userRole =  localStorage.getItem('USER_ROLE');
 
 
  // función para abril el modal para crear un nuevo usuario del botón de (+)
@@ -68,7 +68,7 @@ const handleDeleteCompany = (id) => {
               <h1 className='is-size-2 title-color'> LISTA DE EMPRESAS </h1>
             </div>
             <div>  
-              {'USER_ROLE' === 'admin' && (
+             {userRole === 'admin' && (
               <button className="button  is-right is-info is-size-8 addUser-btn"
                 onClick={buttonRegisterCompany}
               >
@@ -88,7 +88,8 @@ const handleDeleteCompany = (id) => {
                <th className='is-info'> NOMBRE DE LA EMPRESA </th>
                <th className='is-info'> DIRECCIÓN </th>
                <th className='is-info'> TELÉFONO </th>
-              {'USER_ROLE' === 'admin' && (
+            
+              {userRole === 'admin' && (
                <th className='is-info'> ACCIÓN </th>
               )}
              
