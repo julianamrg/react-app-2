@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { useGlobalState } from '../../contexts/GlobalStateContext';
 
 export const Navbar = () => {
   const navigate = useNavigate();
   const { logout } = useGlobalState();
+  const [isActive, setIsActive] = useState(false); // Estado para el menú
 
   const isLoggedIn = !!localStorage.getItem('AUTH_TOKEN');
 
@@ -21,14 +22,32 @@ export const Navbar = () => {
     navigate('/register');
   };
 
+  // Función para alternar el menú hamburguesa
+  const toggleMenu = () => {
+    setIsActive(!isActive);
+  };
+
   return (
     <div className="hero-head">
       <nav className="navbar has-background-info">
         <div className="container">
-          <div className="navbar-brand">
-            {/* <img className= "navbar-item" src={logo}  alt="Logo" /> */}
+          <div className="navbar-brand has-background-info">
+            <a
+              role="button"
+              className={`navbar-burger${isActive ? ' is-active' : ''}`}
+              aria-label="menu"
+              aria-expanded={isActive ? "true" : "false"}
+              data-target="navbarBasicExample"
+              onClick={toggleMenu}
+            >
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
           </div>
-          <div className="navbar-menu">
+
+          <div className={`has-background-info navbar-menu${isActive ? ' is-active' : ''}`}>
             <nav className='navbar-start'>
               <Link to="/" className='navbar-item is-size-3 has-text-dark'>
                 Bienvenido
@@ -68,7 +87,6 @@ export const Navbar = () => {
                   <button
                     className="button is-light has-text-link"
                     style={{
-                      // background: 'linear-gradient(90deg, #ff3860 0%, #ff6f61 100%)',
                       color: '#fff',
                       fontWeight: 'bold',
                       border: 'none',
